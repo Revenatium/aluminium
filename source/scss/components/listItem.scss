@@ -37,26 +37,26 @@
 }
 
 .list-items .listItem {
-    .listItem-content {
-        @extend .row;
-    }
     .listItem-info {
         @extend .col-sm-8;
     }
     .listItem-pic {
         @extend .col-sm-4;
     }
+    .listItem-details {
+        @extend .col-sm-12;
+    }
 }
 
 .list-single .listItem {
     .listItem-info {
         padding: 20px;
-
         .btn-primary {
             display: block;
         }
     }
     .listItem-pic {
-        height: 200px;
+      width: 100%;
+      height: 200px;
     }
 }
