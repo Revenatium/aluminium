@@ -35,3 +35,25 @@
         margin-bottom: 0;
     }
 }
+
+.page-item {
+   background-color: #eee;
+   margin-bottom: 20px;
+   .page-item-img {
+      background-position: center;
+      background-size: cover;
+      min-height: 200px;
+   }
+   img {
+      max-width: calc(100% + 15px);
+      margin-left: -15px;
+      margin-right: -15px;
+   }
+   h2 {
+      margin-top: 20px; 
+      margin-bottom: 15px;
+   }
+   .label {
+      margin-bottom: 15px;
+   }
+}

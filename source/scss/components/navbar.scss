@@ -3,7 +3,15 @@ header>.navbar {
 
     .navbar-nav {
     	.nav-link {
-    		color: $navbar-item-color;
+          @if variable-exists(nav-link-font-family){
+            font-family: $nav-link-font-family, sans-serif;
+          }
+          color: $navbar-item-color;
+          text-transform: uppercase;
+          @media (min-width: 992px) {
+            padding-right: 1rem;
+            padding-left: 1rem;
+          }
     	}
     	.nav-link:focus, 
     	.nav-link:hover {
@@ -16,7 +24,13 @@ header>.navbar {
 		.open>.nav-link {
     		background-color: $navbar-item-active-bgcolor;
     		color: $navbar-item-active-color;
-		}
+      }
+      .active .nav-link:after {
+         display: block;
+         content: "";
+         border-bottom: 3px solid $navbar-item-active-color;
+         padding-top: 5px;
+     }
     }
     .navbar-toggler {
         border-color: $navbar-item-color;
