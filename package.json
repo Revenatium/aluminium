@@ -23,11 +23,13 @@
    },
    "homepage": "https://github.com/Revenatium/aluminium#readme",
    "dependencies": {
-      "bootstrap": "4.0.0-alpha.6",
+      "bootstrap": "4.1.2",
       "clean-css-cli": "^4.1.6",
       "exports-loader": "^0.6.4",
       "font-awesome": "^4.7.0",
+      "jquery": "1.9.1",
       "node-sass": "^4.5.3",
+      "popper.js": "1.14.3",
       "webpack": "^3.6.0"
    },
    "devDependencies": {
