@@ -25,7 +25,45 @@
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
  }
- 
+ .icon-microwave:before {
+   content: "\e90f";
+ }
+ .icon-couch:before {
+   content: "\e910";
+ }
+ .icon-fridge:before {
+   content: "\e90d";
+ }
+ .icon-fan:before {
+   content: "\e90e";
+ }
+ .icon-star:before {
+   content: "\e90a";
+ }
+ .icon-camera:before {
+   content: "\e90b";
+ }
+ .icon-beach:before {
+   content: "\e904";
+ }
+ .icon-slider:before {
+   content: "\e905";
+ }
+ .icon-playground:before {
+   content: "\e906";
+ }
+ .icon-wave:before {
+   content: "\e907";
+ }
+ .icon-toboggan:before {
+   content: "\e908";
+ }
+ .icon-pool-2:before {
+   content: "\e909";
+ }
+ .icon-weather:before {
+   content: "\e903";
+ }
  .icon-taxi:before {
    content: "\e902";
  }
@@ -149,6 +187,9 @@
  .icon-front-desk-2:before {
    content: "\f144";
  }
+ .icon-lotus:before {
+   content: "\e904";
+ }
  .icon-location:before {
-   content: "\e90c";
+   content: "\f130";
  }
