@@ -87,7 +87,7 @@
   transition: background-color 0.3s;
 }
 .is-sticky>.widget-container {
-    background-color: #f3f3f3;
+    background-color: $floating-widget-bgcolor;
     z-index: 100 !important;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
 
