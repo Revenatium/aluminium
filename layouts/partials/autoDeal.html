@@ -10,7 +10,7 @@
    <div class="listItem-pic" style="background-image: url( {{ print $base "f_auto,h_252,w_448,c_fill/" $bucket "/" $image.path }})">
       {{ if and (.discountPercentage) (gt .discountPercentage 0) }}
       <p class="discount-amount">
-         {{ .discountPercentageComplete }}
+         -{{ .discountPercentageComplete }}
       </p>
       {{ end }}
    </div>
@@ -18,7 +18,7 @@
    <div class="listItem-pic listItem-pic--empty">
       {{ if and (.discountPercentage) (gt .discountPercentage 0) }}
       <p class="discount-amount">
-         {{ .discountPercentageComplete }}
+         -{{ .discountPercentageComplete }}
       </p>
       {{ end }}
    </div>
@@ -34,6 +34,9 @@
          <div class="deal-includes">
             {{ if .description }}
             <blockquote>{{ .description | markdownify }}</blockquote>
+            {{ end }}
+            {{ if .lastValidDate }}
+            <div class="badge badge-warning itm-timer-badge d-none"><i class="fa fa-clock-o fa-lg mr-2" ></i>{{ i18n "hurryUp"}} <span class="font-weight-bold" data-countdown="{{.lastValidDate}}"></span></div>
             {{ end }}
             <ul class="list-unstyled">
                {{ range .importantDates }}

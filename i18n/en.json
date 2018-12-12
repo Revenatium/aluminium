@@ -118,5 +118,13 @@
    {
       "id": "roomsUri",
       "translation": "rooms"
+   },
+   {
+      "id": "hurryUp",
+      "translation": "Hurry up, ends in:"
+   },
+   {
+      "id": "promotionFinished",
+      "translation": "Promotion ended"
    }
 ]

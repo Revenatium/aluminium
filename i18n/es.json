@@ -118,5 +118,13 @@
    {
       "id": "roomsUri",
       "translation": "habitaciones"
+   },
+   {
+      "id": "hurryUp",
+      "translation": "Apúrate, quedan:"
+   },
+   {
+      "id": "promotionFinished",
+      "translation": "Promoción finalizada"
    }
 ]

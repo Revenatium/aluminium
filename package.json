@@ -28,6 +28,7 @@
       "exports-loader": "^0.6.4",
       "font-awesome": "^4.7.0",
       "jquery": "1.9.1",
+      "jquery-countdown": "^2.2.0",
       "node-sass": "^4.5.3",
       "popper.js": "1.14.3",
       "webpack": "^3.6.0"
