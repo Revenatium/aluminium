@@ -1,0 +1,5 @@
+<ul class="list-unstyled list-items">
+    {{ range where .Site.RegularPages.ByWeight "Type" "==" "hotel" }}
+       {{partial "hotel" . }}
+    {{ end }}
+ </ul>

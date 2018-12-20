@@ -1,0 +1,22 @@
+{{ $base := .Params.featured_image.base }}
+{{ $path := .Params.featured_image.path }}
+<li class="listItem listItem-deal">
+   <div class="listItem-content">
+      <a href="{{ .Permalink }}" class="listItem-pic" style="background-image: url({{print $base "q_auto:low,f_auto,w_350,h_200,c_fill/" $path}})">
+      </a>
+      <div class="listItem-info">
+         <h2 class="listItem-title mb-0"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+         {{ if .Params.Zone }}
+         <span class="text-muted mb-3">{{ .Params.Zone }}</span>
+         {{ end }}
+         <div class="listItem-shortDesc">
+        	{{ if .Params.description }}
+        		<p>{{ .Params.description }}</p>
+        	{{ end }}
+	     </div>
+         <div class="listItem-actions">
+            <a href="{{ .Permalink }}" class="btn btn-outline-secondary">{{ i18n "roomDetails"}}</a>
+         </div>
+      </div>
+   </div>
+</li>

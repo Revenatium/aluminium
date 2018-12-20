@@ -1,0 +1,27 @@
+{{ define "title" }}
+   {{ .Title | markdownify }} | {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<div class="row">
+   <div class="col-sm-12">
+      {{ .Content }}
+   </div>
+</div>
+<div class="list-items">
+   <div class="form-group">
+      <select id="mpd-deals" class="form-control">
+      {{ range where .Site.RegularPages.ByWeight "Type" "==" "hotel" }}
+         <option value="{{.Params.id}}">{{.Title}}</option>
+      {{ end }}
+      </select>
+   </div>
+   {{ $promosUrl := .Site.Params.promotionsURL }}
+   {{ $deals := getJSON $promosUrl }}
+   {{ range first 20 (where $deals "isActive" true) }}
+      <div class="mpd-deal-item" data-id={{.hotel.id}}>
+      {{ partial "autoDeal" (dict "deal" . "bookingEngineURL" $.Site.Params.bookingEngineURL "imageBase" $.Site.Params.imageBase "imageBucket" $.Site.Params.imageBucket "showHotel" $.Site.Params.promotionsShowHotel) }}
+      </div>
+   {{ end }}
+</div>
+{{ end }}

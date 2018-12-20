@@ -1,0 +1,17 @@
+{{ define "title" }}
+   {{ .Title | markdownify }} | {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<div class="row">
+   <div class="col-sm-12">
+      {{ .Content }}
+   </div>
+</div>
+<ul class="list-unstyled list-items">
+   {{ range where .Site.RegularPages.ByWeight "Type" "==" "hotel" }}
+      {{partial "hotel" . }}
+   {{ end }}
+</ul>
+
+{{ end }}
