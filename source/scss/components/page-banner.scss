@@ -115,3 +115,47 @@
     padding-top: 5rem;
   }
 }
+
+.banner-promo {
+  .lead span:after {
+    content: ", "
+  }
+  .lead span:last-child:after {
+    content: '';
+  }
+}
+// Banner content - Widget vertical
+@media (min-width: 768px) {
+  .banner-content.widget-vertical {
+    padding-top: 4rem;
+    &:after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+    .banner-promo,
+    .page-title {
+      float: left;
+      max-width: 340px;
+    }
+    .widget-container {
+      float: right;
+      max-width: 340px;
+      background-color: #fff;
+      padding: 1rem 1.5rem;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .banner-content.widget-vertical {
+    .banner-promo {
+      max-width: 380px;
+    }
+    .page-title {
+      max-width: 530px;
+    }
+    .widget-container {
+      max-width: 380px;
+    }
+  }
+}

@@ -1,13 +1,26 @@
-<div class="banner-content">
+<div class="banner-content
+{{ if eq .Params.hideBooker true }} no-widget{{ end }}
+{{ if eq .Params.widgetMode "vertical" }} widget-vertical
+{{ else }} widget-horizontal {{ end }}
+">
 	<div class="container">
-       <h1>{{ .Title | markdownify }}</h1>
-       <p class="lead">{{ .Description | markdownify }}</p>
-    </div>
-    {{ if ne .Params.hideBooker true }}
-    <div class="widget-container">
-       <div class="container">
-          <div id="rvm-booker-container" class="itm-booker itm-booker-horizontal"></div>
-       </div>
-    </div>
-    {{ end }}
+      {{ if eq .Params.showPromoInBanner true }}
+         
+         {{ $promosUrl := .Site.Params.promotionsURL }}
+         {{ $deals := getJSON $promosUrl }}
+         {{ range first 1 (where $deals "isActive" true) }}
+            {{ partial "bannerAutoDeal" (dict "deal" . "bookingEngineURL" $.Site.Params.bookingEngineURL "imageBase" $.Site.Params.imageBase "imageBucket" $.Site.Params.imageBucket "showHotel" $.Site.Params.promotionsShowHotel) }}
+         {{ end }}
+
+      {{ else }}
+         {{ partial "page-title" . }}
+      {{ end }}
+      {{ if ne .Params.hideBooker true }}
+      <div class="widget-container">
+            <div id="rvm-booker-container" class="itm-booker 
+            {{ if eq .Params.widgetMode "vertical" }} itm-booker-vertical {{ else }} itm-booker-horizontal {{ end }}">
+            </div>
+      </div>
+      {{ end }}
+   </div>
 </div>
