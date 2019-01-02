@@ -21,7 +21,7 @@
 
     </div>
 {{ end }}
-{{ if eq .Params.showPromoInBanner true }}
+{{ if and (eq .Params.showPromoInBanner true) (ne .Params.hidePageTitle true) }}
 <div class="container">
     {{ partial "page-title" . }}
 </div>

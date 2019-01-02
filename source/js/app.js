@@ -12,9 +12,9 @@ import './jquery.validate';
 $(document).ready(function($){
    window.applyStickyHeader = function(){
       if(window.innerWidth >= 768){
-         $('.widget-horizontal .widget-container').sticky({topSpacing:0});
+         $('.widget-horizontal .widget-container, .sidebar-widget').sticky({topSpacing:0});
       }else{
-         $('.widget-horizontal .widget-container').unstick();
+         $('.widget-horizontal .widget-container, .sidebar-widget').unstick();
       }
    }
 

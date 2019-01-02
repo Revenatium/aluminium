@@ -1,0 +1,18 @@
+{{ define "title" }}
+   {{ .Title | markdownify }} | {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<div class="row">
+    <div class="col-md-8">  
+        {{ .Content }}
+    </div>
+    <div class="col-md-4">
+        <div class="sidebar-widget">
+            <h3>{{ i18n "bookNow"}} </h3>
+            <div id="rvm-booker-container" class="itm-booker itm-booker-vertical"></div>
+        </div>
+        <script async src="{{ .Site.Params.bookerURL }}"></script>
+    </div>
+</div>
+{{ end }}
