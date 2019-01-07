@@ -16,6 +16,7 @@
       {{ with .name }}
       <h2 class="listItem-title">{{ . | markdownify }}</h2>
       {{ end}}
+      <div class="text-muted listItem-destination">{{ .destination.name }}</div>
       {{ with .description }}
       <p class="listItem-description">{{ . | markdownify }}</p>
       {{ end}}
@@ -26,7 +27,7 @@
    </div>
    <div class="listItem-rates">
         <div>{{ i18n "ratesStartingAt" }}:</div>
-        <div>{{ .lowestRate }}</div>
+        <div class="listItem-rates-amount">${{ lang.NumFmt 0 .lowestRate "- . ," }}</div>
         <small class="text-muted">{{ i18n "priceNote" }}</small>
         <a href="{{ $bookingEngineURL }}" class="btn btn-primary">{{ i18n "bookNow"}}</a>
     </div>
