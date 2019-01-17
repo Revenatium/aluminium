@@ -29,7 +29,10 @@
    </div>
    <div class="listItem-rates">
         <div>{{ i18n "ratesStartingAt" }}:</div>
-        <div class="listItem-rates-amount">${{ lang.NumFmt 0 .lowestRate "- . ," }}</div>
+        {{ if .lowestRateDetail.prePromotionalAmount }}
+        <div class="text-muted listItem-prePromotional-amount">${{ lang.NumFmt 0 .lowestRateDetail.prePromotionalAmount "- . ," }}  {{ .lowestRateDetail.currency }}</div> 
+        {{ end }}
+        <div class="listItem-rates-amount">${{ lang.NumFmt 0 .lowestRateDetail.amount "- . ," }} {{ .lowestRateDetail.currency }}</div>
         <small class="text-muted">{{ i18n "priceNote" }}</small>
         <a href="{{ $bookingEngineURL }}#/s/{{ .id }}/{{ $bookingEngineRoomsUrlSufix }}" class="btn btn-primary">{{ i18n "bookNow"}}</a>
     </div>
