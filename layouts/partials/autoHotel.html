@@ -28,13 +28,21 @@
       </div>
    </div>
    <div class="listItem-rates">
-        <div>{{ i18n "ratesStartingAt" }}:</div>
-        {{ if .lowestRateDetail.prePromotionalAmount }}
-        <div class="text-muted listItem-prePromotional-amount">${{ lang.NumFmt 0 .lowestRateDetail.prePromotionalAmount "- . ," }}  {{ .lowestRateDetail.currency }}</div> 
-        {{ end }}
-        <div class="listItem-rates-amount">${{ lang.NumFmt 0 .lowestRateDetail.amount "- . ," }} {{ .lowestRateDetail.currency }}</div>
-        <small class="text-muted">{{ i18n "priceNote" }}</small>
-        <a href="{{ $bookingEngineURL }}#/s/{{ .id }}/{{ $bookingEngineRoomsUrlSufix }}" class="btn btn-primary">{{ i18n "bookNow"}}</a>
+      <div class="row">
+         <div class="col-6 col-sm-6 col-md-12">
+               <div>{{ i18n "ratesStartingAt" }}:</div>
+               {{ if .lowestRateDetail.prePromotionalAmount }}
+               <div class="text-muted listItem-prePromotional-amount">${{ lang.NumFmt 0 .lowestRateDetail.prePromotionalAmount "- . ," }}  {{ .lowestRateDetail.currency }}</div> 
+               {{ end }}
+               <div class="listItem-rates-amount">${{ lang.NumFmt 0 .lowestRateDetail.amount "- . ," }} {{ .lowestRateDetail.currency }}</div>
+         </div>
+         <div class="col-12 col-sm-12 col-md-12 order-12 order-md-0">
+               <small class="text-muted">{{ i18n "priceNote" }}</small>
+         </div>
+         <div class="col-6 col-sm-6 col-md-12">
+               <a href="{{ $bookingEngineURL }}#/s/{{ .id }}/{{ $bookingEngineRoomsUrlSufix }}" class="btn btn-primary">{{ i18n "bookNow"}}</a>
+         </div>
+      </div>
     </div>
 </div>
 {{ end }}
