@@ -1,0 +1,32 @@
+{{ $ := .main }}
+{{ $base := $.Site.Params.imageBase }}
+{{ $bucket := $.Site.Params.imageBucket }}
+{{ $bookingEngineUrl := $.Site.Params.bookingEngineURL }}
+{{ $active := .active }}
+
+{{ with .banner }}
+
+{{ if .photos }}
+   {{ $image := index .photos 0 }}
+   <div 
+      class="carousel-item {{ if $active }}active{{ end }}" 
+      style="background-image: url({{ print $base "f_auto,w_1280,h_600,b_black,o_70,c_fill/" $bucket "-stage/" $image.path }})">
+      <div class="container itm-carousel-info-container">
+         <div class="row">
+            <div class="col-12 col-sm-9 col-md-6">
+               <div class="carousel-banner-info">
+                  {{ if .labelText }}<div class="badge badge-primary text-uppercase d-none d-md-inline-block">{{ .labelText }}</div>{{ end }}
+                  <h1>{{.title}}</h1>
+                  {{ if .subTitle }}<p>{{ .subTitle }}</p>{{ end }}
+                  <a href="{{ $bookingEngineUrl }}" class="btn btn-success d-none d-md-inline-block">{{ .actionText }}</a>
+               </div>
+            </div>
+            <div class="col-12 d-block d-md-none carousel-extra-info">
+               <a href="{{ $bookingEngineUrl }}" class="btn btn-success btn-sm">{{ .actionText }}</a>
+            </div>
+         </div>
+      </div>
+   </div>
+{{ end }}
+
+{{ end }}
