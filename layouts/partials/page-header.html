@@ -38,8 +38,3 @@
       {{ partial "banner-content.html" . }}
    </div>
 {{ end }}
-{{ if and (eq .Params.showPromoInBanner true) (ne .Params.hidePageTitle true) }}
-   <div class="container">
-      {{ partial "page-title" . }}
-   </div>
-{{ end }}
