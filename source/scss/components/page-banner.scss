@@ -205,7 +205,7 @@
    box-shadow: 0 0 5px rgba(0,0,0,0.3);
 
    .itm-promotion-code-modal-link span {
-      color: $brand-color;
+      color: $brand-color !important;
    }
 }
 
@@ -245,4 +245,8 @@
          max-width: 380px;
       }
    }
+}
+.widget-horizontal{
+   position: relative;
+   z-index: 1;
 }

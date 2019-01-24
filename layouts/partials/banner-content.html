@@ -1,4 +1,4 @@
-<div class="banner-content{{ if eq .Params.hideBooker true }} no-widget {{ end }}{{ if eq .Params.widgetMode "vertical" }} widget-vertical {{ else }} widget-horizontal {{ end }}">
+<div class="banner-content{{ if eq .Params.hideBooker true }} no-widget {{ end }}{{ if eq .Params.widgetMode "vertical" }} widget-vertical {{ end }}">
 	<div class="container clearfix">
       {{ if eq .Params.showPromoInBanner true }}
          {{ $promosUrl := .Site.Params.promotionsURL }}
@@ -9,12 +9,19 @@
       {{ else if ne .Params.hideTitle true}}
          {{ partial "page-title" . }}
       {{ end }}
-      {{ if ne .Params.hideBooker true }}
+      {{ if and (ne .Params.hideBooker true) (eq .Params.widgetMode "vertical") }}
       <div class="widget-container">
-            <div id="rvm-booker-container" class="itm-booker 
-            {{ if eq .Params.widgetMode "vertical" }} itm-booker-vertical {{ else }} itm-booker-horizontal {{ end }}">
-            </div>
+         <div id="rvm-booker-container" class="itm-booker itm-booker-vertical">
+         </div>
       </div>
       {{ end }}
    </div>
 </div>
+{{ if and (ne .Params.hideBooker true) (ne .Params.widgetMode "vertical") }}
+<div class="widget-horizontal widget-container widget-sticky">
+   <div class="container">
+      <div id="rvm-booker-container" class="itm-booker itm-booker-horizontal">
+      </div>
+   </div>
+</div>
+{{ end }}
