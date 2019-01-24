@@ -10,7 +10,7 @@
    {{ $image := index .photos 0 }}
    <div 
       class="carousel-item {{ if $active }}active{{ end }}" 
-      style="background-image: url({{ print $base "f_auto,w_1280,h_600,b_black,o_70,c_fill/" $bucket "-stage/" $image.path }})">
+      style="background-image: url({{ print $base "f_auto,w_1280,h_600,b_black,o_70,c_fill/" $bucket "/" $image.path }})">
       <div class="container itm-carousel-info-container">
          <div class="row">
             <div class="col-12 col-sm-9 col-md-6">
