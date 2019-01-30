@@ -1,28 +1,40 @@
-{{if isset .Params "slider" }}
-    <div id="itm-ap-slider" class="jumbotron carousel slide" data-ride="carousel">
-        {{ $base := .Params.slider.base }}
-        {{ $items := split .Params.slider.pics ","}}
-        {{ $len := (len $items) }}
-        <div class="carousel-inner">
-        {{ range $index, $element := $items }}
-        <div class="carousel-item{{ if (eq $index 0) }} active{{ end }}" style="background-image: url({{ print $base "q_auto:low,f_auto,w_1200,h_600,c_fill/" $element }});">
-        </div>
-        {{ end }}
-        </div>
-
-        {{ partial "banner-content.html" . }}
-
-    </div>
-{{ else }}
-    <div class="jumbotron {{if isset .Params "featured_image" }}page-banner{{end}}"
-    {{ if isset .Params "featured_image" }}style="background-image: url({{ .Params.featured_image.base}}q_auto:low,f_auto,w_1200,h_600,c_fill/{{ .Params.featured_image.path }});" {{ end }}>
-
-        {{ partial "banner-content.html" . }}
-
-    </div>
+{{.Scratch.Set "banners" "" }}
+{{ if .Site.Params.bannersURL }}
+   {{.Scratch.Set "banners" (getJSON .Site.Params.bannersURL) }}
 {{ end }}
-{{ if and (eq .Params.showPromoInBanner true) (ne .Params.hidePageTitle true) }}
-<div class="container">
-    {{ partial "page-title" . }}
-</div>
+{{ if and (eq .Params.showBanners true) (ne (len (.Scratch.Get "banners")) 0) }}
+   {{ $banners := .Scratch.Get "banners" }}
+   <div class="itm-stage">
+      {{ partial "banner-content.html" . }}
+      <div id="itm-ap-slider" class="jumbotron fixed has-bgimage carousel slide carousel-fade " data-ride="carousel">
+         <div class="carousel-inner">
+            {{ range $index, $element := (where $banners "isActive" true) }}
+               {{ partial "autoBanner" (dict "active" (eq $index 0) "banner" $element "main" $) }}
+            {{ end }}
+         </div>
+         <ol class="carousel-indicators">
+            {{ range $index, $element := (where $banners "isActive" true) }}
+            <li data-target="#itm-ap-slider" data-slide-to="{{$index}}" class="{{if eq $index 0}}active{{end}}"></li>
+            {{ end }}
+         </ol>
+      </div>
+   </div>
+{{ else if isset .Params "slider" }}
+   <div id="itm-ap-slider" class="jumbotron page-banner has-bgimage opaque carousel slide" data-ride="carousel">
+      {{ $base := .Params.slider.base }}
+      {{ $items := split .Params.slider.pics ","}}
+      {{ $len := (len $items) }}
+      <div class="carousel-inner">
+      {{ range $index, $element := $items }}
+         <div class="carousel-item{{ if (eq $index 0) }} active{{ end }}" style="background-image: url({{ print $base "q_auto:low,f_auto,w_1200,h_600,c_fill/" $element }});">
+         </div>
+      {{ end }}
+      </div>
+      {{ partial "banner-content.html" . }}
+   </div>
+{{ else }}
+   <div class="jumbotron {{if isset .Params "featured_image" }}page-banner has-bgimage opaque{{end}}"
+   {{ if isset .Params "featured_image" }}style="background-image: url({{ .Params.featured_image.base}}f_auto,w_1200,h_600,c_fill/{{ .Params.featured_image.path }});" {{ end }}>
+      {{ partial "banner-content.html" . }}
+   </div>
 {{ end }}

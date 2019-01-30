@@ -1,0 +1,17 @@
+.sidebar-widget {
+   border: 1px solid #ddd;
+   background-color: #fff;
+   position: relative;
+   z-index: 1;
+   margin-top: -2rem;
+   h3 {
+     background-color: $primary;
+     color: #fff;
+     padding: .6rem 1rem;
+     font-size: 1.2rem;
+     margin-top: -2.7rem;
+   }
+   .itm-booker {
+     margin: 0 1rem;
+   }
+ }

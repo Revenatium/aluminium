@@ -12,9 +12,14 @@ import './jquery.validate';
 $(document).ready(function($){
    window.applyStickyHeader = function(){
       if(window.innerWidth >= 768){
-         $('.widget-horizontal .widget-container, .sidebar-widget').sticky({topSpacing:0});
+         $('.widget-sticky').sticky({topSpacing:0});
       }else{
-         $('.widget-horizontal .widget-container, .sidebar-widget').unstick();
+         $('.widget-sticky').unstick();
+      }
+      if(window.innerWidth >= 992) {
+         $('.sidebar-widget').sticky({topSpacing:32});
+      }else{
+         $('.sidebar-widget').unstick();
       }
    }
 

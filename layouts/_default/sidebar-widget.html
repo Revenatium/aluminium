@@ -3,16 +3,16 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="row">
-    <div class="col-md-8">  
-        {{ .Content }}
-    </div>
-    <div class="col-md-4">
+<div class="row"> 
+    <div class="col-lg-4 order-lg-last">
         <div class="sidebar-widget">
             <h3>{{ i18n "bookNow"}} </h3>
             <div id="rvm-booker-container" {{if .Params.id }} data-hotel="{{ .Params.id }}" {{ end }} class="itm-booker itm-booker-vertical"></div>
         </div>
         <script async src="{{ .Site.Params.bookerURL }}"></script>
     </div>
+    <div class="col-lg-8 order-lg-first">  
+         {{ .Content }}
+     </div>
 </div>
 {{ end }}
