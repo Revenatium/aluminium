@@ -4,6 +4,8 @@
 {{ $showHotel := .showHotel}}
 
 {{ with .deal}}
+{{ $lastValidDate := time .lastValidDate }}
+{{ $startDate := dateFormat "2006-01-02" ($lastValidDate.AddDate 0 0 -2) }}
 <div class="row listItem listItem-deal">
    {{if .photos }}
    {{ $image := index .photos 0 }}
@@ -64,7 +66,7 @@
       </div>
       <div class="listItem-actions">
          {{ if and $showHotel .hotel }}
-         <a href="{{ $bookingEngineURL }}#/s/{{ .hotel.id }}/{{ i18n "roomsUri"}}" class="btn btn-primary">{{ i18n "bookNow"}}</a>
+         <a href="{{ $bookingEngineURL }}#/s/{{ .hotel.id }}/{{ i18n "roomsUri"}}/{{ $startDate }}/{{ .lastValidDate }}?r[0].adults=2&r[0].children=0" class="btn btn-primary">{{ i18n "bookNow"}}</a>
          {{ else }}
          <a href="{{ $bookingEngineURL }}" class="btn btn-primary">{{ i18n "bookNow"}}</a>
          {{end}}
