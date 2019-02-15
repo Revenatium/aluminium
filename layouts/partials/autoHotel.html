@@ -4,8 +4,6 @@
 {{ $bookingEngineRoomsUrlSufix := .bookingEngineRoomsUrlSufix }}
 
 {{ with .hotel}}
-{{ $startDate := time .lowestRateDetail.date }}
-{{ $endDate := dateFormat "2006-01-02" ($startDate.AddDate 0 0 +2) }}
 <div class="row listItem">
    {{if .photos }}
       {{ $image := index .photos 0 }}
@@ -31,18 +29,26 @@
    </div>
    <div class="listItem-rates">
       <div class="row">
+         {{ if .lowestRateDetail }}
          <div class="col-6 col-sm-6 col-md-12">
-               <div>{{ i18n "ratesStartingAt" }}:</div>
-               {{ if .lowestRateDetail.prePromotionalAmount }}
-               <div class="text-muted listItem-prePromotional-amount">${{ lang.NumFmt 0 .lowestRateDetail.prePromotionalAmount "- . ," }}  {{ .lowestRateDetail.currency }}</div> 
-               {{ end }}
-               <div class="listItem-rates-amount">${{ lang.NumFmt 0 .lowestRateDetail.amount "- . ," }} {{ .lowestRateDetail.currency }}</div>
+            <div>{{ i18n "ratesStartingAt" }}:</div>
+            {{ if .lowestRateDetail.prePromotionalAmount }}
+            <div class="text-muted listItem-prePromotional-amount">${{ lang.NumFmt 0 .lowestRateDetail.prePromotionalAmount "- . ," }}  {{ .lowestRateDetail.currency }}</div> 
+            {{ end }}
+            <div class="listItem-rates-amount">${{ lang.NumFmt 0 .lowestRateDetail.amount "- . ," }} {{ .lowestRateDetail.currency }}</div>
          </div>
          <div class="col-12 col-sm-12 col-md-12 order-12 order-md-0">
-               <small class="text-muted">{{ i18n "priceNote" }}</small>
+            <small class="text-muted">{{ i18n "priceNote" }}</small>
          </div>
+         {{ end }}
          <div class="col-6 col-sm-6 col-md-12">
-               <a href="{{ $bookingEngineURL }}#/s/{{ .id }}/{{ $bookingEngineRoomsUrlSufix }}/{{ .lowestRateDetail.date }}/{{ $endDate }}?r[0].adults=2&r[0].children=0" class="btn btn-primary">{{ i18n "bookNow"}}</a>
+            {{ if .lowestRateDetail }}
+               {{ $startDate := time .lowestRateDetail.date }}
+               {{ $endDate := dateFormat "2006-01-02" ($startDate.AddDate 0 0 +2) }}
+            <a href="{{ $bookingEngineURL }}#/s/{{ .id }}/{{ $bookingEngineRoomsUrlSufix }}/{{ .lowestRateDetail.date }}/{{ $endDate }}?r[0].adults=2&r[0].children=0" class="btn btn-primary">{{ i18n "bookNow"}}</a>
+            {{ else }}
+            <a href="{{ $bookingEngineURL }}#/s/{{ .id }}/{{ $bookingEngineRoomsUrlSufix }}" class="btn btn-primary">{{ i18n "bookNow"}}</a>
+            {{ end }}
          </div>
       </div>
     </div>
