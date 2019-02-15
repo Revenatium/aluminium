@@ -57,3 +57,18 @@
       margin-bottom: 15px;
    }
 }
+
+.btn-list-amenities {
+   margin-top: 20px;
+   .btn{
+      text-align: left;
+      margin-bottom: 20px;
+      vertical-align: middle;
+      background-color: #FFF;
+      color: #444;
+      .icon {
+         font-size: 1.6em;
+         vertical-align: middle;
+      }
+   }
+}

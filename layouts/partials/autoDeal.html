@@ -25,7 +25,7 @@
       {{ end }}
    </div>
    {{end}}
-   <div class="listItem-info">
+   <div class="listItem-info listItem-info--full">
       {{ if .title}}
       <h2 class="listItem-title">{{ .title | markdownify }} {{ if and $showHotel .hotel }}<div class="listItem-subtitle">{{.hotel.name}}</div>{{end}}</h2>
       {{else}}

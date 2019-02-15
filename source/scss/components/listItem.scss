@@ -46,6 +46,9 @@
     .listItem-info {
         @extend .col-md-5;
     }
+    .listItem-info--full {
+      @extend .col-md-8;
+  }
     .listItem-rates {
         @extend .col-md-3;
     }

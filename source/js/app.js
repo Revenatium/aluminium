@@ -31,6 +31,17 @@ $(document).ready(function($){
       });
    });
 
+   $('.video-link').each(function(){
+      $(this).magnificPopup({
+         disableOn: 700,
+         type: 'iframe',
+         mainClass: 'mfp-fade',
+         removalDelay: 160,
+         preloader: false,
+         fixedContentPos: false
+      });
+   });
+
    $('.carousel').carousel({interval: 4000});
    $(window).resize(function() {
       window.applyStickyHeader();

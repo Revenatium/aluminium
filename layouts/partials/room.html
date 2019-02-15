@@ -4,7 +4,7 @@
 <div class="row listItem listItem-room">
    <div class="listItem-pic" style="background-image: url({{print $base "f_auto,w_350,h_200,c_fill/" $path}})">
    </div>
-   <div class="listItem-info">
+   <div class="listItem-info listItem-info--full">
       <h2 class="listItem-title">{{ .Title | markdownify }}</h2>
       <div class="listItem-data">
          <div class="room-data-pax"><i class="fa fa-user mr-1"></i>{{ .Params.Pax }}</div>

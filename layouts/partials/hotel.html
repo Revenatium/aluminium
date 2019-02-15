@@ -4,7 +4,7 @@
    <div class="listItem-content">
       <a href="{{ .Permalink }}" class="listItem-pic" style="background-image: url({{print $base "q_auto:low,f_auto,w_350,h_200,c_fill/" $path}})">
       </a>
-      <div class="listItem-info">
+      <div class="listItem-info listItem-info--full">
          <h2 class="listItem-title mb-0"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
          {{ if .Params.Zone }}
          <span class="text-muted mb-3">{{ .Params.Zone }}</span>
