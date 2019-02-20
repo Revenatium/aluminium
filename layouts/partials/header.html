@@ -1,6 +1,6 @@
 <div class="clearfix top-bar">
 	<div class="container">
-		<div class="float-left top-bar-contact d-none d-md-block">
+		<div class="float-left top-bar-contact">
 			{{ with .Site.Params.hotelPhone }}<span class="hotel-phone"><i class="fa fa-phone"></i> {{.}}</span>{{ end }}
 			{{ with .Site.Params.hotelEmail }}<a href="mailto:{{.}}" class="hotel-email"><i class="fa fa-envelope"></i> {{.}}</a>{{ end }}
 		</div>
@@ -15,6 +15,16 @@
 			    {{ end}}
 			</div>
 		</div>
-		{{ end }}
+      {{ end }}
+      
+      {{ if .Site.Menus.top }}
+      <ul class="float-right nav nav-top">
+      {{ range .Site.Menus.top }}
+      <li class="">
+         <a  href="{{.URL | absURL }}">{{ .Name }}</a>
+      </li>
+      {{ end }}
+      </ul>
+      {{ end }}	
 	</div>
 </div>
