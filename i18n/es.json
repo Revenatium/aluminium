@@ -138,5 +138,13 @@
    {
       "id": "ratesStartingAt",
       "translation": "Tarifas desde"
+   },
+   {
+      "id": "temporarySuspended",
+      "translation": "Página suspendida temporalmente"
+   },
+   {
+      "id": "temporarySuspendedDescription",
+      "translation": "Lo sentimos, la página que solicitaste está suspendida en este momento"
    }
 ]
