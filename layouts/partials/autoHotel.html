@@ -24,11 +24,8 @@
       <p class="listItem-description">{{ . | markdownify }}</p>
       {{ end }}
       <div class="listItem-actions">
-         {{ if eq .Lang "en" }}
-         <a href="/en/hotels/{{.code}}" class="btn btn-secondary">{{ i18n "viewDetails"}}</a>
-         {{ else }}
-         <a href="/hotels/{{.code}}" class="btn btn-secondary">{{ i18n "viewDetails"}}</a>
-         {{ end }}
+            {{ $hotelUrl := "hotels/" | absLangURL }}
+            <a href="{{$hotelUrl}}/{{.code}}" class="btn btn-secondary">{{ i18n "viewDetails"}}</a>
       </div>
    </div>
    <div class="listItem-rates">
